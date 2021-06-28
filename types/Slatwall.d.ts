@@ -1,0 +1,34 @@
+import Auth from "./endpoints/Auth";
+import Account from "./endpoints/Account";
+import Cart from "./endpoints/Cart";
+import Products from "./endpoints/Products";
+import ProductType from "./endpoints/ProductType";
+import Brand from "./endpoints/Brand";
+import Category from "./endpoints/Category";
+import Option from "./endpoints/Option";
+import Location from "./endpoints/Location";
+import Order from "./endpoints/Order";
+import Content from "./endpoints/Content";
+import Type from "./endpoints/Type";
+import OrderTemplate from "./endpoints/OrderTemplate";
+import General from "./endpoints/General";
+import { SDKConfig } from "./SDKScope";
+declare class Slatwall {
+    private readonly sdkScope;
+    products: Products;
+    cart: Cart;
+    account: Account;
+    auth: Auth;
+    productType: ProductType;
+    brand: Brand;
+    category: Category;
+    location: Location;
+    option: Option;
+    order: Order;
+    content: Content;
+    type: Type;
+    orderTemplate: OrderTemplate;
+    general: General;
+    constructor(config: SDKConfig);
+}
+export default Slatwall;
