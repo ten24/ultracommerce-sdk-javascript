@@ -1,5 +1,5 @@
 export const Routes = {
-  login: () => `api/auth/login`,
+  login: () => `api/scope/login`,
   logout: () => `api/scope/logout`,
   getAccount: () => `api/scope/getAccount`,
   createAccount: () => `api/scope/createAccount`,
@@ -147,16 +147,16 @@ export const Routes = {
   getBrand: (id: string) => `/api/public/brand/${id}`,
 
   //Categories APIs
-  listCategory: () => `/api/category`,
-  getCategory: (id: string) => `/api/category/${id}`,
+  listCategory: () => `/api/public/category`,
+  getCategory: (id: string) => `/api/public/category/${id}`,
 
   //Options API
-  listOption: () => `/api/option`,
-  getOption: (id: string) => `/api/option/${id}`,
+  listOption: () => `/api/public/option`,
+  getOption: (id: string) => `/api/public/option/${id}`,
 
   //Location APIs
-  listLocation: () => `/api/location`,
-  getLocation: (id: string) => `/api/location/${id}`,
+  listLocation: () => `/api/public/location`,
+  getLocation: (id: string) => `/api/public/location/${id}`,
   getPickupLocations: () => `/api/scope/getPickupLocations`,
   getCountries: () => `/api/scope/getCountries`,
   getAddressOptions: () => `/api/scope/getAddressOptionsByCountryCode`,
