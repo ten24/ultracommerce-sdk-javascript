@@ -124,6 +124,10 @@ export default class Cart extends BaseEndpoint {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addOrderPayment(), params, headers, source)) as IOrderResult
   }
 
+  public async addGiftCardPayment(params: ICartAddPayment, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addGiftCardOrderPayment(), params, headers, source)) as IOrderResult
+  }
+
   public async removePayment(params: ICartRemovePayment, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.removeOrderPayment(), params, headers, source)) as IOrderResult
   }
