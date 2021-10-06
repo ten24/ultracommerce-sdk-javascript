@@ -82,6 +82,8 @@ export const Routes = {
   addNewAddressAndAttachAsShipping: () => `/api/scope/addNewAccountAddress,addShippingAddressUsingAccountAddress`, //new
   addEditAddressAndAttachAsShipping: () => `/api/scope/addEditAccountAddress,addShippingAddressUsingAccountAddress`, //new
   addOrderPayment: () => `/api/scope/addOrderPayment`,
+  addGiftCardOrderPayment: () => `/api/scope/addGiftCardOrderPayment`,
+
   removeOrderPayment: () => `/api/scope/removeOrderPayment`,
 
   placeOrder: () => `/api/scope/placeOrder`,
