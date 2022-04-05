@@ -1,4 +1,4 @@
-import { HttpService } from "./HttpService";
+import { HttpService } from './HttpService';
 export declare class SDKConfig {
     private host;
     private version;
@@ -18,3 +18,4 @@ export declare class SDKScope {
     set bearerToken(bearerToken: string);
 }
 export default SDKScope;
+export declare function checkBrowser(): boolean;

@@ -148,3 +148,7 @@ export interface IAccountSubscriptionUsage {
     pageRecordsShow: number;
     currentPage: number;
 }
+export interface IAccountImpersonation {
+    accountID: string;
+    emailAddress: string;
+}

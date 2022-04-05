@@ -1,7 +1,7 @@
 {
-  "name": "@slatwall/slatwall-sdk",
+  "name": "@ultracommerce/ultracommerce-sdk",
   "version": "1.0.0",
-  "description": "Slatwall SDK",
+  "description": "Ultra Commerce SDK",
   "engines": {
     "node": ">=8",
     "yarn": ">=1.13.0"
@@ -21,14 +21,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ten24/slatwall-sdk-javascript.git"
+    "url": "git+https://github.com/ten24/ultracommerce-sdk-javascript.git"
   },
-  "author": "Slatwall Inc. <contact@slatwallcommerce.com> (https://www.slatwallcommerce.com)",
+  "author": "Ultra Commerce Inc. <contact@ultracommerce.co> (https://www.ultracommerce.co)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ten24/slatwall-sdk-javascript/issues"
+    "url": "https://github.com/ten24/ultracommerce-sdk-javascript/issues"
   },
-  "homepage": "https://www.slatwallcommerce.com/resources",
+  "homepage": "https://www.ultracommerce.co",
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/plugin-proposal-class-properties": "^7.14.5",

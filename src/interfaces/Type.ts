@@ -1,16 +1,16 @@
-import { JsonApiDocument, JsonApiListResponse, JsonApiSingleResponse } from './JsonApi';
-import { ResultResponse } from './ResultResponse';
+import { JsonApiDocument, JsonApiListResponse, JsonApiSingleResponse } from './JsonApi'
+import { ResultResponse } from './ResultResponse'
 
 export interface TypeAttr extends JsonApiDocument {
-    typeCode: string
+  typeCode: string
 }
 
 export interface IType extends JsonApiSingleResponse {
-    data: TypeAttr;
+  data: TypeAttr
 }
 
 export interface ITypes extends JsonApiListResponse {
-    data: TypeAttr[];
+  data: TypeAttr[]
 }
 
 export interface ITypeResult extends ResultResponse<IType> {}

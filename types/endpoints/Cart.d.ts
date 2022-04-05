@@ -7,6 +7,8 @@ export default class Cart extends BaseEndpoint {
     get(params?: IQuery, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     addCartToSession(params?: any, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     clear(params: ICartClear, headers?: IHeaders, source?: any): Promise<IOrderResult>;
+    getPayPalClientConfigForCart(headers?: IHeaders, source?: any): Promise<IOrderResult>;
+    createPayPalAccountPaymentMethod(params?: IQuery, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     updateNotes(params: ICartUpdateNotes, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     addItem(params: ICartAddItem, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     addItems(params: ICartAddItems, headers?: IHeaders, source?: any): Promise<IOrderResult>;
@@ -34,6 +36,7 @@ export default class Cart extends BaseEndpoint {
     addNewAddressAndAttachAsShipping(params?: any, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     addEditAddressAndAttachAsShipping(params?: any, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     addPayment(params: ICartAddPayment, headers?: IHeaders, source?: any): Promise<IOrderResult>;
+    addGiftCardPayment(params: ICartAddPayment, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     removePayment(params: ICartRemovePayment, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     placeOrder(params: ICartPlaceOrder, headers?: IHeaders, source?: any): Promise<IOrderResult>;
 }

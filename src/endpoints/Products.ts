@@ -6,6 +6,7 @@ import { IProductFilterOptionsResult } from '../interfaces/ProductFilterOption'
 import { IProductOptionGroupResult } from '../interfaces/ProductOptionGroup'
 import { IQuery, productOptionGroup } from '../interfaces/Query'
 import { IProductsGetFilterOptions, IProductsGetGallery, IProductsGetImagePaths, IProductsGetDetails, IProductsGetOptionsByOptionGroup, IProductsGetRelatedProducts, IProductsGetReviews, IProductsGetStock, IProductsGetBundles, IProductsCreateBundleBuild, IProductsGetBundleBuild, IProductsRemoveBundleBuild } from '../interfaces/requests/index'
+import { ISkuResult } from '../interfaces/Sku'
 import { Routes } from '../routes'
 import { IHeaders } from '../SDKScope'
 
@@ -54,8 +55,9 @@ export default class Products extends BaseEndpoint {
     return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.listSku(), parseParams(params), headers, source)) as IProductsResult
   }
 
-  public async getSku(id: string, headers: IHeaders = {}, source: any = null): Promise<IProductResult> {
-    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getSku(id), headers, source)) as IProductResult
+  public async getSku(id: string, headers: IHeaders = {}, source: any = null): Promise<ISkuResult> {
+    const res = await this.sdkScope.httpService.slatwallResponse(GET, Routes.getSku(id), {}, headers, source)
+    return res as ISkuResult
   }
 
   public async getRelatedProducts(params: IProductsGetRelatedProducts, headers: IHeaders = {}, source: any = null): Promise<IProductsResult> {

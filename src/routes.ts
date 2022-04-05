@@ -5,6 +5,11 @@ export const Routes = {
   createAccount: () => `api/scope/createAccount`,
   updateAccount: () => `api/scope/updateAccount`,
   changePassword: () => `api/scope/changePassword`,
+  impersonateAccount: (params: any) =>
+    `?slatAction=account.impersonateAccount&${Object.keys(params)
+      .map(key => key + '=' + params[key])
+      .join('&')}&apiRequest=1`,
+  endImpersonation: () => `/?slatAction=account.endFrontendImpersonation&apiRequest=1`,
 
   //public Endpoints
   forgotPassword: () => `api/scope/forgotPassword`,
@@ -82,6 +87,10 @@ export const Routes = {
   addNewAddressAndAttachAsShipping: () => `/api/scope/addNewAccountAddress,addShippingAddressUsingAccountAddress`, //new
   addEditAddressAndAttachAsShipping: () => `/api/scope/addEditAccountAddress,addShippingAddressUsingAccountAddress`, //new
   addOrderPayment: () => `/api/scope/addOrderPayment`,
+  addGiftCardOrderPayment: () => `/api/scope/addGiftCardOrderPayment`,
+  getPayPalClientConfigForCart: () => `/api/scope/getPayPalClientConfigForCart`,
+  createPayPalAccountPaymentMethod: () => `/api/scope/createPayPalAccountPaymentMethod`,
+
   removeOrderPayment: () => `/api/scope/removeOrderPayment`,
 
   placeOrder: () => `/api/scope/placeOrder`,
@@ -169,4 +178,7 @@ export const Routes = {
   getContent: () => `/api/public/content`,
   getConfiguration: () => `/api/scope/getConfiguration`,
   getEntity: () => `/api/public/getEntity`,
+  getContentByPage: () => `/api/scope/getContentByPage`,
+  verifyRecaptcha: () => `/api/scope/verifyRecaptcha`,
+  downloadFile: () => `/api/scope/downloadFile`,
 }

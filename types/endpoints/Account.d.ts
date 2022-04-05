@@ -1,7 +1,7 @@
 import BaseEndpoint from '../BaseEndpoint';
 import { IAccountResult } from '../interfaces/Account';
 import { IQuery } from '../interfaces/Query';
-import { IAccountCreate, IAccountUpdate, IAccountChangePassword, IAccountForgotPassword, IAccountResetPassword, IAccountCreateGuestAccount, IAccountCreateGuestAccountPassword, IAccountVerifyEmailAddress, IAccountSendEmailVerificationLink, IAccountAddEmailAddress, IAccountSetPrimaryEmailAddress, IAccountDeleteEmailAddress, IAccountAddPhoneNumber, IAccountSetPrimaryPhoneNumber, IAccountDeletePhoneNumber, IAccountAddAddress, IAccountSetPrimaryAddress, IAccountUpdateAddress, IAccountDeleteAddress, IAccountAddPaymentMethod, IAccountDeletePaymentMethod, IAccountSetPrimaryPaymentMethod, IAccountOrders, IAccountCartsAndQuotes, IAccountOrderFulfillments, IAccountOrderDeliveries, IAccountGiftCards, IAccountSubscriptionUsage } from '../interfaces/requests/index';
+import { IAccountCreate, IAccountUpdate, IAccountChangePassword, IAccountForgotPassword, IAccountResetPassword, IAccountCreateGuestAccount, IAccountCreateGuestAccountPassword, IAccountVerifyEmailAddress, IAccountSendEmailVerificationLink, IAccountAddEmailAddress, IAccountSetPrimaryEmailAddress, IAccountDeleteEmailAddress, IAccountAddPhoneNumber, IAccountSetPrimaryPhoneNumber, IAccountDeletePhoneNumber, IAccountAddAddress, IAccountSetPrimaryAddress, IAccountUpdateAddress, IAccountDeleteAddress, IAccountAddPaymentMethod, IAccountDeletePaymentMethod, IAccountSetPrimaryPaymentMethod, IAccountOrders, IAccountCartsAndQuotes, IAccountOrderFulfillments, IAccountOrderDeliveries, IAccountGiftCards, IAccountSubscriptionUsage, IAccountImpersonation } from '../interfaces/requests/index';
 import { IHeaders } from '../SDKScope';
 export default class Account extends BaseEndpoint {
     get(params?: IQuery, headers?: IHeaders, source?: any): Promise<IAccountResult>;
@@ -35,4 +35,6 @@ export default class Account extends BaseEndpoint {
     subscriptionUsage(params: IAccountSubscriptionUsage, headers?: IHeaders, source?: any): Promise<IAccountResult>;
     parentAccount(headers?: IHeaders, source?: any): Promise<IAccountResult>;
     childAccounts(headers?: IHeaders, source?: any): Promise<IAccountResult>;
+    impersonateAccount(params: IAccountImpersonation, headers?: IHeaders, source?: any): Promise<IAccountResult>;
+    endImpersonation(headers?: IHeaders, source?: any): Promise<IAccountResult>;
 }

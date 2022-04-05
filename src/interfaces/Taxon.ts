@@ -1,10 +1,10 @@
-import { JsonApiDocument, JsonApiListResponse, JsonApiSingleResponse } from './JsonApi';
-import { IRelationships } from './Relationships';
-import { ResultResponse } from './ResultResponse';
+import { JsonApiDocument, JsonApiListResponse, JsonApiSingleResponse } from './JsonApi'
+import { IRelationships } from './Relationships'
+import { ResultResponse } from './ResultResponse'
 
 export interface TaxonAttr extends JsonApiDocument {
-  type: string;
-  id: string;
+  type: string
+  id: string
   attributes: {
     name: string
     pretty_name: string
@@ -21,19 +21,19 @@ export interface TaxonAttr extends JsonApiDocument {
     is_child: boolean
     is_leaf: string
     updated_at: Date
-  };
+  }
 
-  relationships: IRelationships;
+  relationships: IRelationships
 }
 
 export interface ITaxon extends JsonApiSingleResponse {
-  data: TaxonAttr;
+  data: TaxonAttr
 }
 
 export interface ITaxons extends JsonApiListResponse {
-  data: TaxonAttr[];
+  data: TaxonAttr[]
 }
 
-export interface ITaxonResult extends ResultResponse<ITaxon> { }
+export interface ITaxonResult extends ResultResponse<ITaxon> {}
 
-export interface ITaxonsResult extends ResultResponse<ITaxons> { }
+export interface ITaxonsResult extends ResultResponse<ITaxons> {}

@@ -5,6 +5,8 @@ export declare const Routes: {
     createAccount: () => string;
     updateAccount: () => string;
     changePassword: () => string;
+    impersonateAccount: (params: any) => string;
+    endImpersonation: () => string;
     forgotPassword: () => string;
     resetPassowrd: () => string;
     createGuestAccount: () => string;
@@ -62,6 +64,9 @@ export declare const Routes: {
     addNewAddressAndAttachAsShipping: () => string;
     addEditAddressAndAttachAsShipping: () => string;
     addOrderPayment: () => string;
+    addGiftCardOrderPayment: () => string;
+    getPayPalClientConfigForCart: () => string;
+    createPayPalAccountPaymentMethod: () => string;
     removeOrderPayment: () => string;
     placeOrder: () => string;
     getOrderDetails: () => string;
@@ -124,4 +129,7 @@ export declare const Routes: {
     getContent: () => string;
     getConfiguration: () => string;
     getEntity: () => string;
+    getContentByPage: () => string;
+    verifyRecaptcha: () => string;
+    downloadFile: () => string;
 };

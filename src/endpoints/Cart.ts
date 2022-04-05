@@ -19,6 +19,14 @@ export default class Cart extends BaseEndpoint {
     return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.clearCart(), params, headers, source)) as IOrderResult
   }
 
+  public async getPayPalClientConfigForCart(headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getPayPalClientConfigForCart(), {}, headers, source)) as IOrderResult
+  }
+
+  public async createPayPalAccountPaymentMethod(params: IQuery = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.createPayPalAccountPaymentMethod(), params, headers, source)) as IOrderResult
+  }
+
   public async updateNotes(params: ICartUpdateNotes, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
     return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.updateOrderNotes(), params, headers, source)) as IOrderResult
   }
@@ -122,6 +130,10 @@ export default class Cart extends BaseEndpoint {
 
   public async addPayment(params: ICartAddPayment, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addOrderPayment(), params, headers, source)) as IOrderResult
+  }
+
+  public async addGiftCardPayment(params: ICartAddPayment, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addGiftCardOrderPayment(), params, headers, source)) as IOrderResult
   }
 
   public async removePayment(params: ICartRemovePayment, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
