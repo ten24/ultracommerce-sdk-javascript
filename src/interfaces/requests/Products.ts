@@ -1,57 +1,57 @@
 export interface IProductsGetGallery {
-    productID: string
+  productID: string
 }
 
 export interface IProductsGetImagePaths {
-    skuIDs: string,
-    profileName: string
+  skuIDs: string
+  profileName: string
 }
 
 export interface IProductsGetDetails {
-    productID: string,
-    selectedOptionIDList: string
+  productID: string
+  selectedOptionIDList: string
 }
 
 export interface IProductsGetOptionsByOptionGroup {
-    productID : string;
-    optionGroupID: string;
+  productID: string
+  optionGroupID: string
 }
 
 export interface IProductsGetFilterOptions {
-    allowProductAssignmentFlag: boolean,
-    activeFlag: boolean
+  allowProductAssignmentFlag: boolean
+  activeFlag: boolean
 }
 
 export interface IProductsGetRelatedProducts {
-    productID: string
+  productID: string
 }
 
 export interface IProductsGetReviews {
-    productID: string
+  productID: string
 }
 
 export interface IProductsGetStock {
-    skuID: string, 
-    locationID: string
+  skuID: string
+  locationID: string
 }
 
 export interface IProductsGetBundles {
-    productID: string, 
-    currentPage?: string,
-    pageRecordsShow?: string
+  productID: string
+  currentPage?: string
+  pageRecordsShow?: string
 }
 
-export interface IProductsCreateBundleBuild{
-    skuIDList: string, 
-    quantities: string,
-    productBundleGroupID: string,
-    defaultSkuID: string
+export interface IProductsCreateBundleBuild {
+  skuIDList: string
+  quantities: string
+  productBundleGroupID: string
+  defaultSkuID: string
 }
 
-export interface IProductsGetBundleBuild{
-    skuID: string
+export interface IProductsGetBundleBuild {
+  skuID: string
 }
 
-export interface IProductsRemoveBundleBuild{
-    productBundleBuildID: string
+export interface IProductsRemoveBundleBuild {
+  productBundleBuildID: string
 }

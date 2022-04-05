@@ -5,3 +5,24 @@ export interface IContentData {
 export interface IContentGetConfiguration {
     siteCode: String;
 }
+export interface IContentByPage {
+    urlTitle: String;
+    productUrlTitle: String;
+    includeHeader: boolean;
+    includeFooter: boolean;
+    includeAllCategory: boolean;
+    includeProductCategory: boolean;
+    includeAllProductType: boolean;
+    includeProductProductType: boolean;
+    includeAllBrand: boolean;
+    includeProductBrand: boolean;
+    includeCategories: boolean;
+    includeImages: boolean;
+    includeGlobalContent: boolean;
+}
+export interface IVerifyRecaptcha {
+    recaptchaToken: String;
+}
+export interface IDownloadFile {
+    fileID: String;
+}

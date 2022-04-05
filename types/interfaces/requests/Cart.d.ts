@@ -19,10 +19,10 @@ export interface ICartAddItems {
     quantities: number;
 }
 export interface ICartUpdateItemQuantity {
-    "orderItem.sku.skuID": string;
-    "orderItem.qty": number;
+    'orderItem.sku.skuID': string;
+    'orderItem.qty': number;
     returnJSONObjects: string;
-    "orderItem.fulfillmentMethodID": string;
+    'orderItem.fulfillmentMethodID': string;
 }
 export interface ICartRemoveItem {
     orderItemID: string;
@@ -100,22 +100,22 @@ export interface ICartAddBillingAddress {
     returnJSONObjects: string;
 }
 export interface ICartAddPayment {
-    "newOrderPayment.billingAddress.name": string;
-    "newOrderPayment.billingAddress.streetAddress": string;
-    "newOrderPayment.billingAddress.street2Address": string;
-    "newOrderPayment.billingAddress.city": string;
-    "newOrderPayment.billingAddress.statecode": string;
-    "newOrderPayment.billingAddress.postalcode": number;
-    "newOrderPayment.billingAddress.countrycode": string;
-    "newOrderPayment.nameOnCreditCard": string;
-    "newOrderPayment.creditCardNumber": string;
-    "newOrderPayment.expirationMonth": number;
-    "newOrderPayment.expirationYear": number;
-    "newOrderPayment.securityCode": number;
-    "returnJSONObjects": string;
-    "newOrderPayment.requireBillingAddress": number;
-    "newOrderPayment.giftCardNumber": string;
-    "newOrderPayment.paymentMethod.paymentMethodID": string;
+    'newOrderPayment.billingAddress.name': string;
+    'newOrderPayment.billingAddress.streetAddress': string;
+    'newOrderPayment.billingAddress.street2Address': string;
+    'newOrderPayment.billingAddress.city': string;
+    'newOrderPayment.billingAddress.statecode': string;
+    'newOrderPayment.billingAddress.postalcode': number;
+    'newOrderPayment.billingAddress.countrycode': string;
+    'newOrderPayment.nameOnCreditCard': string;
+    'newOrderPayment.creditCardNumber': string;
+    'newOrderPayment.expirationMonth': number;
+    'newOrderPayment.expirationYear': number;
+    'newOrderPayment.securityCode': number;
+    returnJSONObjects: string;
+    'newOrderPayment.requireBillingAddress': number;
+    'newOrderPayment.giftCardNumber': string;
+    'newOrderPayment.paymentMethod.paymentMethodID': string;
 }
 export interface ICartRemovePayment {
     orderPaymentID: string;

@@ -1,10 +1,10 @@
-import { JsonApiDocument, JsonApiListResponse, JsonApiSingleResponse } from './JsonApi';
-import { IRelationships } from './Relationships';
-import { ResultResponse } from './ResultResponse';
+import { JsonApiDocument, JsonApiListResponse, JsonApiSingleResponse } from './JsonApi'
+import { IRelationships } from './Relationships'
+import { ResultResponse } from './ResultResponse'
 
 export interface OrderAttr extends JsonApiDocument {
-  type: string;
-  id: string;
+  type: string
+  id: string
   attributes: {
     number: string
     item_total: string
@@ -32,17 +32,17 @@ export interface OrderAttr extends JsonApiDocument {
     created_at: Date
     updated_at: Date
     completed_at: Date
-  };
+  }
 
-  relationships: IRelationships;
+  relationships: IRelationships
 }
 
 export interface IOrder extends JsonApiSingleResponse {
-  data: OrderAttr;
+  data: OrderAttr
 }
 
 export interface IOrders extends JsonApiListResponse {
-  data: OrderAttr[];
+  data: OrderAttr[]
 }
 
 export interface IOrderResult extends ResultResponse<IOrder> {}

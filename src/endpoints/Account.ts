@@ -1,10 +1,9 @@
 import { GET, POST } from '../constants'
 import BaseEndpoint from '../BaseEndpoint'
 import { IAccountResult } from '../interfaces/Account'
-import { parseParams, parsePublicParams } from '../helpers/parseParams'
 import { IQuery } from '../interfaces/Query'
 import { Routes } from '../routes'
-import { IAccountCreate, IAccountUpdate, IAccountChangePassword, IAccountForgotPassword, IAccountResetPassword, IAccountCreateGuestAccount, IAccountCreateGuestAccountPassword, IAccountVerifyEmailAddress, IAccountSendEmailVerificationLink, IAccountAddEmailAddress, IAccountSetPrimaryEmailAddress, IAccountDeleteEmailAddress, IAccountAddPhoneNumber, IAccountSetPrimaryPhoneNumber, IAccountDeletePhoneNumber, IAccountAddAddress, IAccountSetPrimaryAddress, IAccountUpdateAddress, IAccountDeleteAddress, IAccountAddPaymentMethod, IAccountDeletePaymentMethod, IAccountSetPrimaryPaymentMethod, IAccountOrders, IAccountCartsAndQuotes, IAccountOrderFulfillments, IAccountOrderDeliveries, IAccountGiftCards, IAccountSubscriptionUsage } from '../interfaces/requests/index'
+import { IAccountCreate, IAccountUpdate, IAccountChangePassword, IAccountForgotPassword, IAccountResetPassword, IAccountCreateGuestAccount, IAccountCreateGuestAccountPassword, IAccountVerifyEmailAddress, IAccountSendEmailVerificationLink, IAccountAddEmailAddress, IAccountSetPrimaryEmailAddress, IAccountDeleteEmailAddress, IAccountAddPhoneNumber, IAccountSetPrimaryPhoneNumber, IAccountDeletePhoneNumber, IAccountAddAddress, IAccountSetPrimaryAddress, IAccountUpdateAddress, IAccountDeleteAddress, IAccountAddPaymentMethod, IAccountDeletePaymentMethod, IAccountSetPrimaryPaymentMethod, IAccountOrders, IAccountCartsAndQuotes, IAccountOrderFulfillments, IAccountOrderDeliveries, IAccountGiftCards, IAccountSubscriptionUsage, IAccountImpersonation } from '../interfaces/requests/index'
 import { IHeaders } from '../SDKScope'
 
 export default class Account extends BaseEndpoint {
@@ -130,5 +129,13 @@ export default class Account extends BaseEndpoint {
 
   public async childAccounts(headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.getChildAccounts(), {}, headers, source)) as IAccountResult
+  }
+
+  public async impersonateAccount(params: IAccountImpersonation, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.impersonateAccount(params), {}, headers, source)) as IAccountResult
+  }
+
+  public async endImpersonation(headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.endImpersonation(), {}, headers, source)) as IAccountResult
   }
 }
