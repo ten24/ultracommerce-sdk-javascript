@@ -1,6 +1,21 @@
 import { JsonApiDocument, JsonApiListResponse, JsonApiSingleResponse } from './JsonApi';
 import { ResultResponse } from './ResultResponse';
 
+export interface Breadcrumb {
+  activeFlag: string;
+  urlTitle: string;
+  seoSummary: string;
+  imageFile: string;
+  productTypeDescription: string;
+  productTypeIDPath: string;
+  productTypeID: string;
+  productTypeNamePath: string;
+  systemCode: string;
+  importRemoteID: string;
+  parentProductType_productTypeID: string;
+  productTypeName: string;
+}
+
 export interface ProductAttr extends JsonApiDocument {
   productID: string;
   productName: string;
@@ -24,6 +39,7 @@ export interface ProductAttr extends JsonApiDocument {
   brand_brandID: string;
   calculatedSalePrice: number;
   productType_productTypeName: string;
+  breadcrumbs: Breadcrumb[];
 }
 
 export interface IProduct extends JsonApiSingleResponse {

@@ -1,22 +1,22 @@
-import { JsonApiDocument, JsonApiListResponse, JsonApiSingleResponse } from './JsonApi';
-import { ResultResponse } from './ResultResponse';
+import { JsonApiDocument, JsonApiListResponse, JsonApiSingleResponse } from './JsonApi'
+import { ResultResponse } from './ResultResponse'
 
 export interface LocationAttr extends JsonApiDocument {
-  locationID: string;
-  locationName: string;
-  locationCode: string;
-  locationIDPath: string;
-  activeFlag: boolean;
-  currencyCode: string;
-  calculatedLocationPathName: string;
+  locationID: string
+  locationName: string
+  locationCode: string
+  locationIDPath: string
+  activeFlag: boolean
+  currencyCode: string
+  calculatedLocationPathName: string
 }
 
 export interface ILocation extends JsonApiSingleResponse {
-  data: LocationAttr;
+  data: LocationAttr
 }
 
 export interface ILocations extends JsonApiListResponse {
-  data: LocationAttr[];
+  data: LocationAttr[]
 }
 
 export interface ILocationResult extends ResultResponse<ILocation> {}

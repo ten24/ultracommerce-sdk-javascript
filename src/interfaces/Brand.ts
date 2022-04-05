@@ -1,21 +1,21 @@
-import { JsonApiDocument, JsonApiListResponse, JsonApiSingleResponse } from './JsonApi';
-import { ResultResponse } from './ResultResponse';
+import { JsonApiDocument, JsonApiListResponse, JsonApiSingleResponse } from './JsonApi'
+import { ResultResponse } from './ResultResponse'
 
 export interface BrandAttr extends JsonApiDocument {
-  brandID: string;
-  brandName: string;
-  brandWebsite: string;
-  activeFlag: boolean;
-  urlTitle: string;
-  publishedFlag: boolean;
+  brandID: string
+  brandName: string
+  brandWebsite: string
+  activeFlag: boolean
+  urlTitle: string
+  publishedFlag: boolean
 }
 
 export interface IBrand extends JsonApiSingleResponse {
-  data: BrandAttr;
+  data: BrandAttr
 }
 
 export interface IBrands extends JsonApiListResponse {
-  data: BrandAttr[];
+  data: BrandAttr[]
 }
 
 export interface IBrandResult extends ResultResponse<IBrand> {}

@@ -1,7 +1,8 @@
-name: Node.js Package
+name: Node.js Package pre-released
 on:
   release:
-    types: [created]
+    types: [prereleased]
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,6 +23,6 @@ jobs:
         run: npm version --allow-same-version --no-git-tag-version ${{ steps.get_version.outputs.version-without-v }}
       - name: Install Dependencies
         run: npm install
-      - run: npm publish --access public
+      - run: npm publish --access --tag next
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
