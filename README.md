@@ -8,7 +8,7 @@ The Ultra Commerce team is dedicated to making new tools and services available 
 
 The Ultra Commerce API contains example scripts and endpoints to connect and interact with Ultra Commerce.
 
-https://publicapi.slatwallcommerce.com/
+https://publicapi.ultracommerce.co
 
 ## Examples
 
