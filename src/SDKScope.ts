@@ -1,8 +1,8 @@
 import { HttpService } from './HttpService'
 
 export class SDKConfig {
-  private host = ''
-  private version = 1
+  public host = ''
+  public version = 1
 }
 
 export interface IAuthToken {
@@ -12,8 +12,8 @@ export interface IAuthToken {
 export type IHeaders = { [k: string]: string }
 
 export class SDKScope {
-  public readonly sdkConfig: any
-  private authToken: any
+  public readonly sdkConfig: SDKConfig
+  private authToken: IAuthToken
   public httpService: HttpService
 
   constructor(config: SDKConfig, authToken: IAuthToken = {}) {

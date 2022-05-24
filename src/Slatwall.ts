@@ -15,7 +15,7 @@ import General from './endpoints/General'
 import SDKScope, { SDKConfig } from './SDKScope'
 
 class Slatwall {
-  private readonly sdkScope: SDKScope
+  public sdkScope: SDKScope
   public products: Products
   public cart: Cart
   public account: Account
