@@ -47,10 +47,14 @@ export const Routes = {
   getAccountQuotes: () => `/api/scope/getAllCartsAndQuotesOnAccount`,
   getAccountOrderFulfillments: () => `/api/scope/getAllOrderFulfillmentsOnAccount`,
   getAccountOrderDeliveries: () => `/api/scope/getAllOrderDeliveryOnAccount`,
-  getGiftCardsOnAccount: () => `/api/scope/getAllGiftCardsOnAccount`,
+  getGiftCardsOnAccount: () => `/api/scope/getGiftCardsOnAccount`,
   getSubscriptionUsage: () => `/api/scope/getSubscriptionsUsageOnAccount`,
   getParentAccount: () => `/api/scope/getParentOnAccount/`,
   getChildAccounts: () => `/api/scope/getChildOnAccount`,
+
+  addGiftCardToAccount: () => `/api/scope/addGiftCardToAccount`,
+  updateGiftCardStatus: () => `/api/scope/updateGiftCardStatus`,
+  getGiftCardTransactions: () => `/api/scope/getGiftCardTransactions`,
 
   //Checkout Endpoints
   getCart: () => `/api/scope/getCartData`,
@@ -120,6 +124,18 @@ export const Routes = {
   getWishListItems: () => `api/scope/getWishListItems`,
   addWishlistItemAndGetWishList: () => `api/scope/addWishlistItem,getWishlistItems`, //new
   removeWishlistItemAndGetWishList: () => `api/scope/removeWishlistItem,getWishlistItems`, //new
+  getOrderTemplateItems: () => `api/scope/getOrderTemplateItems`,
+  getOrderTemplateDetails: () => `api/scope/getOrderTemplateDetails`,
+  updateOrderTemplateShipping: () => `api/scope/updateOrderTemplateShipping`,
+  updateOrderTemplateBilling: () => `api/scope/updateOrderTemplateBilling`,
+  getCancellationReasonTypeOptions: () => `api/scope/getCancellationReasonTypeOptions`,
+  getFrequencyTermOptions: () => `api/scope/getFrequencyTermOptions`,
+  getScheduleDateChangeReasonTypeOptions: () => `api/scope/getScheduleDateChangeReasonTypeOptions`,
+  editOrderTemplateItem: () => `api/scope/editOrderTemplateItem`,
+  editOrderTemplate: () => `api/scope/editOrderTemplate`,
+  updateOrderTemplateFrequency: () => `api/scope/updateOrderTemplateFrequency`,
+  cancelOrderTemplate: () => `api/scope/cancelOrderTemplate`,
+  updateOrderTemplateSchedule: () => `api/scope/updateOrderTemplateSchedule`,
 
   //Product Endpoints
   listProduct: () => `/api/public/product`,
@@ -138,6 +154,7 @@ export const Routes = {
   removeProductBundleBuild: () => `api/scope/removeProductBundleBuild`,
   productSearch: () => `/api/scope/productSearch`,
   getResizedImageByProfileName: () => `/api/scope/getResizedImageByProfileName`,
+  addProductReview: () => `/api/scope/addProductReview`,
 
   //Product Type Endpoints
   listProductType: () => `/api/producttype`,
@@ -181,4 +198,12 @@ export const Routes = {
   getContentByPage: () => `/api/scope/getContentByPage`,
   verifyRecaptcha: () => `/api/scope/verifyRecaptcha`,
   downloadFile: () => `/api/scope/downloadFile`,
+
+  //Quote Management Api
+  getQuotes: () => `/api/scope/getQuotes`,
+  getQuote: () => `/api/scope/getQuote`,
+  createQuote: () => `/api/scope/createQuote`,
+  convertCartToQuote: () => `/api/scope/convertCartToQuote`,
+  updateQuote: () => `/api/scope/updateQuote`,
+  submitQuoteForApproval: () => `/api/scope/submitQuoteForApproval`,
 }

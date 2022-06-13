@@ -12,6 +12,7 @@ import Content from './endpoints/Content';
 import Type from './endpoints/Type';
 import OrderTemplate from './endpoints/OrderTemplate';
 import General from './endpoints/General';
+import Quotes from './endpoints/Quotes';
 import SDKScope, { SDKConfig } from './SDKScope';
 declare class Slatwall {
     sdkScope: SDKScope;
@@ -29,6 +30,7 @@ declare class Slatwall {
     type: Type;
     orderTemplate: OrderTemplate;
     general: General;
+    quotes: Quotes;
     constructor(config: SDKConfig);
 }
 export default Slatwall;

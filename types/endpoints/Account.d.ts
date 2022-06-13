@@ -1,7 +1,7 @@
 import BaseEndpoint from '../BaseEndpoint';
 import { IAccountResult } from '../interfaces/Account';
 import { IQuery } from '../interfaces/Query';
-import { IAccountCreate, IAccountUpdate, IAccountChangePassword, IAccountForgotPassword, IAccountResetPassword, IAccountCreateGuestAccount, IAccountCreateGuestAccountPassword, IAccountVerifyEmailAddress, IAccountSendEmailVerificationLink, IAccountAddEmailAddress, IAccountSetPrimaryEmailAddress, IAccountDeleteEmailAddress, IAccountAddPhoneNumber, IAccountSetPrimaryPhoneNumber, IAccountDeletePhoneNumber, IAccountAddAddress, IAccountSetPrimaryAddress, IAccountUpdateAddress, IAccountDeleteAddress, IAccountAddPaymentMethod, IAccountDeletePaymentMethod, IAccountSetPrimaryPaymentMethod, IAccountOrders, IAccountCartsAndQuotes, IAccountOrderFulfillments, IAccountOrderDeliveries, IAccountGiftCards, IAccountSubscriptionUsage, IAccountImpersonation } from '../interfaces/requests/index';
+import { IAccountCreate, IAccountUpdate, IAccountChangePassword, IAccountForgotPassword, IAccountResetPassword, IAccountCreateGuestAccount, IAccountCreateGuestAccountPassword, IAccountVerifyEmailAddress, IAccountSendEmailVerificationLink, IAccountAddEmailAddress, IAccountSetPrimaryEmailAddress, IAccountDeleteEmailAddress, IAccountAddPhoneNumber, IAccountSetPrimaryPhoneNumber, IAccountDeletePhoneNumber, IAccountAddAddress, IAccountSetPrimaryAddress, IAccountUpdateAddress, IAccountDeleteAddress, IAccountAddPaymentMethod, IAccountDeletePaymentMethod, IAccountSetPrimaryPaymentMethod, IAccountOrders, IAccountCartsAndQuotes, IAccountOrderFulfillments, IAccountOrderDeliveries, IAccountGiftCards, IAccountSubscriptionUsage, IAccountImpersonation, IGiftCardAdd, IGiftCardUpdateStatus, IGiftCardTransactions } from '../interfaces/requests/index';
 import { IHeaders } from '../SDKScope';
 export default class Account extends BaseEndpoint {
     get(params?: IQuery, headers?: IHeaders, source?: any): Promise<IAccountResult>;
@@ -32,6 +32,9 @@ export default class Account extends BaseEndpoint {
     orderFulfillments(params: IAccountOrderFulfillments, headers?: IHeaders, source?: any): Promise<IAccountResult>;
     orderDeliveries(params: IAccountOrderDeliveries, headers?: IHeaders, source?: any): Promise<IAccountResult>;
     giftCards(params: IAccountGiftCards, headers?: IHeaders, source?: any): Promise<IAccountResult>;
+    addGiftCard(params: IGiftCardAdd, headers?: IHeaders, source?: any): Promise<IAccountResult>;
+    updateGiftCardStatus(params: IGiftCardUpdateStatus, headers?: IHeaders, source?: any): Promise<IAccountResult>;
+    getGiftCardTransactions(params: IGiftCardTransactions, headers?: IHeaders, source?: any): Promise<IAccountResult>;
     subscriptionUsage(params: IAccountSubscriptionUsage, headers?: IHeaders, source?: any): Promise<IAccountResult>;
     parentAccount(headers?: IHeaders, source?: any): Promise<IAccountResult>;
     childAccounts(headers?: IHeaders, source?: any): Promise<IAccountResult>;

@@ -5,7 +5,7 @@ import { IProductResult, IProductsResult } from '../interfaces/Product'
 import { IProductFilterOptionsResult } from '../interfaces/ProductFilterOption'
 import { IProductOptionGroupResult } from '../interfaces/ProductOptionGroup'
 import { IQuery, productOptionGroup } from '../interfaces/Query'
-import { IProductsGetFilterOptions, IProductsGetGallery, IProductsGetImagePaths, IProductsGetDetails, IProductsGetOptionsByOptionGroup, IProductsGetRelatedProducts, IProductsGetReviews, IProductsGetStock, IProductsGetBundles, IProductsCreateBundleBuild, IProductsGetBundleBuild, IProductsRemoveBundleBuild } from '../interfaces/requests/index'
+import { IProductsGetFilterOptions, IProductsGetGallery, IProductsGetImagePaths, IProductsGetDetails, IProductsGetOptionsByOptionGroup, IProductsGetRelatedProducts, IProductsGetReviews, IProductsGetStock, IProductsGetBundles, IProductsCreateBundleBuild, IProductsGetBundleBuild, IProductsRemoveBundleBuild, IProductsAddReview } from '../interfaces/requests/index'
 import { ISkuResult } from '../interfaces/Sku'
 import { Routes } from '../routes'
 import { IHeaders } from '../SDKScope'
@@ -86,5 +86,9 @@ export default class Products extends BaseEndpoint {
 
   public async removeBundleBuild(params: IProductsRemoveBundleBuild, headers: IHeaders = {}, source: any = null): Promise<IProductsResult> {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.removeProductBundleBuild(), params, headers, source)) as IProductsResult
+  }
+  
+  public async addProductReview(params: IProductsAddReview, headers: IHeaders = {}, source: any = null): Promise<IProductsResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addProductReview(), params, headers, source)) as IProductsResult
   }
 }

@@ -1,6 +1,6 @@
 import BaseEndpoint from '../BaseEndpoint';
-import { IOrderTemplateResult, IOrderTemplatesResult } from '../interfaces/OrderTemplate';
-import { IWishListShare, IWishListRemoveItem, IOrderTemplateCreate, IOrderTemplateCreateAndAddItem, IOrderTemplateGet, IOrderTemplateList, IOrderTemplateAddItem, IOrderTemplateRemoveItem, IOrderTemplateAddPromotionCode, IOrderTemplateRemovePromotionCode, IOrderTemplateGetAppliedPromotionCode } from '../interfaces/requests/OrderTemplate';
+import { IOrderTemplateResult, IOrderTemplatesResult, IOrderTemplateResponseResult } from '../interfaces/OrderTemplate';
+import { IWishListShare, IWishListRemoveItem, IOrderTemplateCreate, IOrderTemplateCreateAndAddItem, IOrderTemplateGet, IOrderTemplateList, IOrderTemplateAddItem, IOrderTemplateRemoveItem, IOrderTemplateAddPromotionCode, IOrderTemplateRemovePromotionCode, IOrderTemplateGetAppliedPromotionCode, IOrderTemplateItemEdit, IOrderTemplateEdit, IOrderTemplateEditFrequency, IOrderTemplateEditSchedule, IOrderTemplateCancelOrderTemplate, IOrderTemplateUpdateShipping } from '../interfaces/requests/OrderTemplate';
 import { IHeaders } from '../SDKScope';
 export default class OrderTemplate extends BaseEndpoint {
     create(params: IOrderTemplateCreate, headers?: IHeaders, source?: any): Promise<IOrderTemplateResult>;
@@ -21,4 +21,16 @@ export default class OrderTemplate extends BaseEndpoint {
     shareWishlist(params: IWishListShare, headers?: IHeaders, source?: any): Promise<IOrderTemplateResult>;
     getWishlists(headers?: IHeaders, source?: any): Promise<IOrderTemplateResult>;
     getWishListItems(headers?: IHeaders, source?: any): Promise<IOrderTemplatesResult>;
+    getOrderTemplateItems(params: IOrderTemplateGet, headers?: IHeaders, source?: any): Promise<IOrderTemplateResult>;
+    getOrderTemplateDetails(params: IOrderTemplateGet, headers?: IHeaders, source?: any): Promise<IOrderTemplateResult>;
+    updateOrderTemplateShipping(params: IOrderTemplateUpdateShipping, headers?: IHeaders, source?: any): Promise<IOrderTemplateResult>;
+    updateOrderTemplateBilling(params: IOrderTemplateUpdateShipping, headers?: IHeaders, source?: any): Promise<IOrderTemplateResult>;
+    getCancellationReasonTypeOptions(headers?: IHeaders, source?: any): Promise<IOrderTemplatesResult>;
+    getFrequencyTermOptions(headers?: IHeaders, source?: any): Promise<IOrderTemplatesResult>;
+    getScheduleDateChangeReasonTypeOptions(headers?: IHeaders, source?: any): Promise<IOrderTemplatesResult>;
+    editOrderTemplateItem(params: IOrderTemplateItemEdit, headers?: IHeaders, source?: any): Promise<IOrderTemplateResult>;
+    editOrderTemplate(params: IOrderTemplateEdit, headers?: IHeaders, source?: any): Promise<IOrderTemplateResponseResult>;
+    updateOrderTemplateFrequency(params: IOrderTemplateEditFrequency, headers?: IHeaders, source?: any): Promise<IOrderTemplateResult>;
+    updateOrderTemplateSchedule(params: IOrderTemplateEditSchedule, headers?: IHeaders, source?: any): Promise<IOrderTemplateResult>;
+    cancelOrderTemplate(params: IOrderTemplateCancelOrderTemplate, headers?: IHeaders, source?: any): Promise<IOrderTemplateResult>;
 }
