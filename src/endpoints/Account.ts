@@ -3,7 +3,7 @@ import BaseEndpoint from '../BaseEndpoint'
 import { IAccountResult } from '../interfaces/Account'
 import { IQuery } from '../interfaces/Query'
 import { Routes } from '../routes'
-import { IAccountCreate, IAccountUpdate, IAccountChangePassword, IAccountForgotPassword, IAccountResetPassword, IAccountCreateGuestAccount, IAccountCreateGuestAccountPassword, IAccountVerifyEmailAddress, IAccountSendEmailVerificationLink, IAccountAddEmailAddress, IAccountSetPrimaryEmailAddress, IAccountDeleteEmailAddress, IAccountAddPhoneNumber, IAccountSetPrimaryPhoneNumber, IAccountDeletePhoneNumber, IAccountAddAddress, IAccountSetPrimaryAddress, IAccountUpdateAddress, IAccountDeleteAddress, IAccountAddPaymentMethod, IAccountDeletePaymentMethod, IAccountSetPrimaryPaymentMethod, IAccountOrders, IAccountCartsAndQuotes, IAccountOrderFulfillments, IAccountOrderDeliveries, IAccountGiftCards, IAccountSubscriptionUsage, IAccountImpersonation } from '../interfaces/requests/index'
+import { IAccountCreate, IAccountUpdate, IAccountChangePassword, IAccountForgotPassword, IAccountResetPassword, IAccountCreateGuestAccount, IAccountCreateGuestAccountPassword, IAccountVerifyEmailAddress, IAccountSendEmailVerificationLink, IAccountAddEmailAddress, IAccountSetPrimaryEmailAddress, IAccountDeleteEmailAddress, IAccountAddPhoneNumber, IAccountSetPrimaryPhoneNumber, IAccountDeletePhoneNumber, IAccountAddAddress, IAccountSetPrimaryAddress, IAccountUpdateAddress, IAccountDeleteAddress, IAccountAddPaymentMethod, IAccountDeletePaymentMethod, IAccountSetPrimaryPaymentMethod, IAccountOrders, IAccountCartsAndQuotes, IAccountOrderFulfillments, IAccountOrderDeliveries, IAccountGiftCards, IAccountSubscriptionUsage, IAccountImpersonation, IGiftCardAdd, IGiftCardUpdateStatus, IGiftCardTransactions } from '../interfaces/requests/index'
 import { IHeaders } from '../SDKScope'
 
 export default class Account extends BaseEndpoint {
@@ -116,7 +116,19 @@ export default class Account extends BaseEndpoint {
   }
 
   public async giftCards(params: IAccountGiftCards, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
-    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.getGiftCardsOnAccount(), params, headers, source)) as IAccountResult
+    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getGiftCardsOnAccount(), params, headers, source)) as IAccountResult
+  }
+
+  public async addGiftCard(params: IGiftCardAdd, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addGiftCardToAccount(), params, headers, source)) as IAccountResult
+  }
+
+  public async updateGiftCardStatus(params: IGiftCardUpdateStatus, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.updateGiftCardStatus(), params, headers, source)) as IAccountResult
+  }
+
+  public async getGiftCardTransactions(params: IGiftCardTransactions, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getGiftCardTransactions(), params, headers, source)) as IAccountResult
   }
 
   public async subscriptionUsage(params: IAccountSubscriptionUsage, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {

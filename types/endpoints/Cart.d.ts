@@ -5,23 +5,16 @@ import { ICartClear, ICartUpdateNotes, ICartAddItem, ICartAddItems, ICartUpdateI
 import { IHeaders } from '../SDKScope';
 export default class Cart extends BaseEndpoint {
     get(params?: IQuery, headers?: IHeaders, source?: any): Promise<IOrderResult>;
-    addCartToSession(params?: any, headers?: IHeaders, source?: any): Promise<IOrderResult>;
-    clear(params: ICartClear, headers?: IHeaders, source?: any): Promise<IOrderResult>;
-    getPayPalClientConfigForCart(headers?: IHeaders, source?: any): Promise<IOrderResult>;
-    createPayPalAccountPaymentMethod(params?: IQuery, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     updateNotes(params: ICartUpdateNotes, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     addItem(params: ICartAddItem, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     addItems(params: ICartAddItems, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     updateItemQuantity(params: ICartUpdateItemQuantity, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     removeItem(params: ICartRemoveItem, headers?: IHeaders, source?: any): Promise<IOrderResult>;
-    addProductBundleBuild(params: ICartAddProductBundleBuild, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     availableShippingMethods(params: ICartAvailableShippingMethods, headers?: IHeaders, source?: any): Promise<IOrderResult>;
-    eligibleFulfillmentMethods(headers?: IHeaders, source?: any): Promise<IOrderResult>;
+    eligibleFulfillmentMethods(params?: IQuery, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     availablePaymentMethods(params?: IQuery, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     setPickupDate(params: ICartSetPickupDate, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     clearOrderFulfillment(params: ICartClearOrderFulfillment, headers?: IHeaders, source?: any): Promise<IOrderResult>;
-    appliedPromotionCodes(params?: IQuery, headers?: IHeaders, source?: any): Promise<IOrderResult>;
-    appliedPayments(params?: IQuery, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     addShippingAddress(params: ICartAddShippingAddress, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     addShippingAddressUsingAccountAddress(params: ICartAddShippingAddressUsingAccountAddress, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     addBillingAddressUsingAccountAddress(params: ICartAddBillingAddressUsingAccountAddress, headers?: IHeaders, source?: any): Promise<IOrderResult>;
@@ -36,7 +29,15 @@ export default class Cart extends BaseEndpoint {
     addNewAddressAndAttachAsShipping(params?: any, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     addEditAddressAndAttachAsShipping(params?: any, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     addPayment(params: ICartAddPayment, headers?: IHeaders, source?: any): Promise<IOrderResult>;
-    addGiftCardPayment(params: ICartAddPayment, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     removePayment(params: ICartRemovePayment, headers?: IHeaders, source?: any): Promise<IOrderResult>;
     placeOrder(params: ICartPlaceOrder, headers?: IHeaders, source?: any): Promise<IOrderResult>;
+    clear(params: ICartClear, headers?: IHeaders, source?: any): Promise<IOrderResult>;
+    delete(params?: IQuery, headers?: IHeaders, source?: any): Promise<IOrderResult>;
+    addCartToSession(params?: any, headers?: IHeaders, source?: any): Promise<IOrderResult>;
+    getPayPalClientConfigForCart(headers?: IHeaders, source?: any): Promise<IOrderResult>;
+    createPayPalAccountPaymentMethod(params?: IQuery, headers?: IHeaders, source?: any): Promise<IOrderResult>;
+    addProductBundleBuild(params: ICartAddProductBundleBuild, headers?: IHeaders, source?: any): Promise<IOrderResult>;
+    appliedPromotionCodes(params?: IQuery, headers?: IHeaders, source?: any): Promise<IOrderResult>;
+    appliedPayments(params?: IQuery, headers?: IHeaders, source?: any): Promise<IOrderResult>;
+    addGiftCardPayment(params: ICartAddPayment, headers?: IHeaders, source?: any): Promise<IOrderResult>;
 }

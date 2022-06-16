@@ -55,3 +55,19 @@ export interface IProductsGetBundleBuild {
 export interface IProductsRemoveBundleBuild {
   productBundleBuildID: string
 }
+
+export interface IProductsAddReview{
+    newProductReview: IProductsAddReviewNewProduct
+}
+
+export interface IProductsAddReviewNewProduct{
+    product: IProductsAddReviewNewProductID,
+    rating: number
+    review: string,
+    reviewTitle: string,
+    reviewerName: string
+}
+
+export interface IProductsAddReviewNewProductID{
+    productID : string
+}

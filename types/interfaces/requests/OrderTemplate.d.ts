@@ -55,3 +55,43 @@ export interface IWishListShare {
     orderTemplateID: string;
     receiverEmailAddress: string;
 }
+export interface IOrderTemplateGetItems {
+    orderTemplateID: string;
+}
+export interface IOrderTemplateGetItemDetails {
+    orderTemplateID: string;
+}
+export interface IOrderTemplateItemEdit {
+    orderTemplateItemID: string;
+    quanity: string;
+}
+export interface IOrderTemplateEdit {
+    orderTemplateID: string;
+    orderTemplateName: string;
+}
+export interface IOrderTemplateEditFrequency {
+    orderTemplateID: string;
+    frequencyTerm: object;
+}
+export interface IOrderTemplateEditSchedule {
+    orderTemplateID: string;
+    orderTemplateScheduleDateChangeReasonTypeID: string;
+    otherScheduleDateChangeReasonNotes: string;
+    scheduleOrderNextPlaceDateTime: string;
+}
+export interface IOrderTemplateCancelOrderTemplate {
+    orderTemplateID: string;
+    orderTemplateCancellationReasonType: string;
+    orderTemplateCancellationReasonTypeOther: string;
+}
+export interface IOrderTemplateUpdateShipping {
+    orderTemplateID: string;
+    shippingAccountAddress: object;
+    shippingMethodID: string;
+}
+export interface IOrderTemplateUpdateBilling {
+    accountPaymentMethod?: object;
+    billingAccountAddress?: object;
+    orderTemplateID: string;
+    shippingMethodID: string;
+}

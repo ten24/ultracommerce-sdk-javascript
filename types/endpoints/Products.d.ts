@@ -3,7 +3,7 @@ import { IProductResult, IProductsResult } from '../interfaces/Product';
 import { IProductFilterOptionsResult } from '../interfaces/ProductFilterOption';
 import { IProductOptionGroupResult } from '../interfaces/ProductOptionGroup';
 import { IQuery } from '../interfaces/Query';
-import { IProductsGetFilterOptions, IProductsGetGallery, IProductsGetImagePaths, IProductsGetDetails, IProductsGetOptionsByOptionGroup, IProductsGetRelatedProducts, IProductsGetReviews, IProductsGetStock, IProductsGetBundles, IProductsCreateBundleBuild, IProductsGetBundleBuild, IProductsRemoveBundleBuild } from '../interfaces/requests/index';
+import { IProductsGetFilterOptions, IProductsGetGallery, IProductsGetImagePaths, IProductsGetDetails, IProductsGetOptionsByOptionGroup, IProductsGetRelatedProducts, IProductsGetReviews, IProductsGetStock, IProductsGetBundles, IProductsCreateBundleBuild, IProductsGetBundleBuild, IProductsRemoveBundleBuild, IProductsAddReview } from '../interfaces/requests/index';
 import { ISkuResult } from '../interfaces/Sku';
 import { IHeaders } from '../SDKScope';
 export default class Products extends BaseEndpoint {
@@ -26,4 +26,5 @@ export default class Products extends BaseEndpoint {
     createBundleBuild(params: IProductsCreateBundleBuild, headers?: IHeaders, source?: any): Promise<IProductsResult>;
     getBundleBuild(params: IProductsGetBundleBuild, headers?: IHeaders, source?: any): Promise<IProductsResult>;
     removeBundleBuild(params: IProductsRemoveBundleBuild, headers?: IHeaders, source?: any): Promise<IProductsResult>;
+    addProductReview(params: IProductsAddReview, headers?: IHeaders, source?: any): Promise<IProductsResult>;
 }

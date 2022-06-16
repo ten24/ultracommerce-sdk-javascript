@@ -1,10 +1,13 @@
 {
   "name": "@ultracommerce/ultracommerce-sdk",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "Ultra Commerce SDK",
   "engines": {
     "node": ">=8",
     "yarn": ">=1.13.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "main": "dist/server/index.js",
   "types": "types/index.d.ts",
@@ -17,7 +20,8 @@
     "watch:server": "webpack --watch --config-name server",
     "watch:client": "webpack --watch --config-name client",
     "lint:fix": "tslint src/**/*.ts --fix",
-    "ud": "npx npm-check-updates -u"
+    "ud": "npx npm-check-updates -u",
+    "pretty": "npx -y prettier --write 'src/**/*.ts'"
   },
   "repository": {
     "type": "git",

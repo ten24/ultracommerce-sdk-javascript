@@ -34,6 +34,9 @@ export declare const Routes: {
     getSubscriptionUsage: () => string;
     getParentAccount: () => string;
     getChildAccounts: () => string;
+    addGiftCardToAccount: () => string;
+    updateGiftCardStatus: () => string;
+    getGiftCardTransactions: () => string;
     getCart: () => string;
     addCartToSession: () => string;
     clearCart: () => string;
@@ -91,6 +94,18 @@ export declare const Routes: {
     getWishListItems: () => string;
     addWishlistItemAndGetWishList: () => string;
     removeWishlistItemAndGetWishList: () => string;
+    getOrderTemplateItems: () => string;
+    getOrderTemplateDetails: () => string;
+    updateOrderTemplateShipping: () => string;
+    updateOrderTemplateBilling: () => string;
+    getCancellationReasonTypeOptions: () => string;
+    getFrequencyTermOptions: () => string;
+    getScheduleDateChangeReasonTypeOptions: () => string;
+    editOrderTemplateItem: () => string;
+    editOrderTemplate: () => string;
+    updateOrderTemplateFrequency: () => string;
+    cancelOrderTemplate: () => string;
+    updateOrderTemplateSchedule: () => string;
     listProduct: () => string;
     getProduct: (id: string) => string;
     productDetailData: () => string;
@@ -107,6 +122,7 @@ export declare const Routes: {
     removeProductBundleBuild: () => string;
     productSearch: () => string;
     getResizedImageByProfileName: () => string;
+    addProductReview: () => string;
     listProductType: () => string;
     getProductType: (id: string) => string;
     listSku: () => string;
@@ -132,4 +148,10 @@ export declare const Routes: {
     getContentByPage: () => string;
     verifyRecaptcha: () => string;
     downloadFile: () => string;
+    getQuotes: () => string;
+    getQuote: () => string;
+    createQuote: () => string;
+    convertCartToQuote: () => string;
+    updateQuote: () => string;
+    submitQuoteForApproval: () => string;
 };
