@@ -6,25 +6,10 @@ import { Routes } from '../routes'
 import { ICartClear, ICartUpdateNotes, ICartAddItem, ICartAddItems, ICartUpdateItemQuantity, ICartRemoveItem, ICartAddProductBundleBuild, ICartAvailableShippingMethods, ICartAddShippingAddress, ICartAddShippingAddressUsingAccountAddress, ICartAddBillingAddressUsingAccountAddress, ICartAddShippingMethod, ICartAddPickupLocation, ICartUpdateFulfillment, ICartSetPickupDate, ICartClearOrderFulfillment, ICartApplyPromoCode, ICartRemovePromoCode, ICartAddBillingAddress, ICartAddPayment, ICartRemovePayment, ICartPlaceOrder } from '../interfaces/requests/index'
 import { IHeaders } from '../SDKScope'
 
+/* Note these should be kept in pairity with Quotes */
 export default class Cart extends BaseEndpoint {
   public async get(params: IQuery = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
     return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getCart(), params, headers, source)) as IOrderResult
-  }
-
-  public async addCartToSession(params: any = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
-    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addCartToSession(), params, headers, source)) as IOrderResult
-  }
-
-  public async clear(params: ICartClear, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
-    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.clearCart(), params, headers, source)) as IOrderResult
-  }
-
-  public async getPayPalClientConfigForCart(headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
-    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getPayPalClientConfigForCart(), {}, headers, source)) as IOrderResult
-  }
-
-  public async createPayPalAccountPaymentMethod(params: IQuery = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
-    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.createPayPalAccountPaymentMethod(), params, headers, source)) as IOrderResult
   }
 
   public async updateNotes(params: ICartUpdateNotes, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
@@ -47,16 +32,12 @@ export default class Cart extends BaseEndpoint {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.removeOrderItem(), params, headers, source)) as IOrderResult
   }
 
-  public async addProductBundleBuild(params: ICartAddProductBundleBuild, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
-    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addProductBundleToCart(), params, headers, source)) as IOrderResult
-  }
-
   public async availableShippingMethods(params: ICartAvailableShippingMethods, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
     return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getAvailableShippingMethods(), params, headers, source)) as IOrderResult
   }
 
-  public async eligibleFulfillmentMethods(headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
-    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getEligibleFulfillmentMethods(), {}, headers, source)) as IOrderResult
+  public async eligibleFulfillmentMethods(params: IQuery = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getEligibleFulfillmentMethods(), params, headers, source)) as IOrderResult
   }
 
   public async availablePaymentMethods(params: IQuery = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
@@ -69,14 +50,6 @@ export default class Cart extends BaseEndpoint {
 
   public async clearOrderFulfillment(params: ICartClearOrderFulfillment, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
     return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.clearOrderFulfillment(), params, headers, source)) as IOrderResult
-  }
-
-  public async appliedPromotionCodes(params: IQuery = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
-    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getAppliedPromotionCodes(), params, headers, source)) as IOrderResult
-  }
-
-  public async appliedPayments(params: IQuery = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
-    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getAppliedPayments(), params, headers, source)) as IOrderResult
   }
 
   public async addShippingAddress(params: ICartAddShippingAddress, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
@@ -118,12 +91,15 @@ export default class Cart extends BaseEndpoint {
   public async addNewAccountAndSetAsBillingAddress(params: any = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addNewAccountAndSetAsBillingAddress(), params, headers, source)) as IOrderResult
   }
+
   public async addEditAccountAndSetAsBillingAddress(params: any = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addEditAccountAndSetAsBillingAddress(), params, headers, source)) as IOrderResult
   }
+
   public async addNewAddressAndAttachAsShipping(params: any = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addNewAddressAndAttachAsShipping(), params, headers, source)) as IOrderResult
   }
+
   public async addEditAddressAndAttachAsShipping(params: any = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addEditAddressAndAttachAsShipping(), params, headers, source)) as IOrderResult
   }
@@ -132,15 +108,48 @@ export default class Cart extends BaseEndpoint {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addOrderPayment(), params, headers, source)) as IOrderResult
   }
 
-  public async addGiftCardPayment(params: ICartAddPayment, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
-    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addGiftCardOrderPayment(), params, headers, source)) as IOrderResult
-  }
-
   public async removePayment(params: ICartRemovePayment, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.removeOrderPayment(), params, headers, source)) as IOrderResult
   }
 
   public async placeOrder(params: ICartPlaceOrder, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.placeOrder(), params, headers, source)) as IOrderResult
+  }
+
+  public async clear(params: ICartClear, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.clearCart(), params, headers, source)) as IOrderResult
+  }
+
+  public async delete(params: IQuery = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.deleteOrder(), params, headers, source)) as IOrderResult
+  }
+
+  /* Start Cart specific Functions */
+  public async addCartToSession(params: any = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addCartToSession(), params, headers, source)) as IOrderResult
+  }
+
+  public async getPayPalClientConfigForCart(headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getPayPalClientConfigForCart(), {}, headers, source)) as IOrderResult
+  }
+
+  public async createPayPalAccountPaymentMethod(params: IQuery = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.createPayPalAccountPaymentMethod(), params, headers, source)) as IOrderResult
+  }
+
+  public async addProductBundleBuild(params: ICartAddProductBundleBuild, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addProductBundleToCart(), params, headers, source)) as IOrderResult
+  }
+
+  public async appliedPromotionCodes(params: IQuery = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getAppliedPromotionCodes(), params, headers, source)) as IOrderResult
+  }
+
+  public async appliedPayments(params: IQuery = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getAppliedPayments(), params, headers, source)) as IOrderResult
+  }
+
+  public async addGiftCardPayment(params: ICartAddPayment, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addGiftCardOrderPayment(), params, headers, source)) as IOrderResult
   }
 }

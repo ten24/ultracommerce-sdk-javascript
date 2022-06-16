@@ -12,10 +12,11 @@ import Content from './endpoints/Content'
 import Type from './endpoints/Type'
 import OrderTemplate from './endpoints/OrderTemplate'
 import General from './endpoints/General'
+import Quotes from './endpoints/Quotes'
 import SDKScope, { SDKConfig } from './SDKScope'
 
 class Slatwall {
-  private readonly sdkScope: SDKScope
+  public sdkScope: SDKScope
   public products: Products
   public cart: Cart
   public account: Account
@@ -30,6 +31,7 @@ class Slatwall {
   public type: Type
   public orderTemplate: OrderTemplate
   public general: General
+  public quotes: Quotes
 
   constructor(config: SDKConfig) {
     this.sdkScope = new SDKScope({
@@ -50,6 +52,7 @@ class Slatwall {
     this.type = new Type(this.sdkScope)
     this.orderTemplate = new OrderTemplate(this.sdkScope)
     this.general = new General(this.sdkScope)
+    this.quotes = new Quotes(this.sdkScope)
   }
 }
 
