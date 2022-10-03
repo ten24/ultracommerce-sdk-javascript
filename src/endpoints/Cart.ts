@@ -16,6 +16,10 @@ export default class Cart extends BaseEndpoint {
     return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.updateOrderNotes(), params, headers, source)) as IOrderResult
   }
 
+  public async updateOrder(params: IQuery = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.updateOrder(), params, headers, source)) as IOrderResult
+  }
+
   public async addItem(params: ICartAddItem, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addOrderItem(), params, headers, source)) as IOrderResult
   }
@@ -74,6 +78,10 @@ export default class Cart extends BaseEndpoint {
 
   public async updateFulfillment(params: ICartUpdateFulfillment, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.changeOrderFulfilment(), params, headers, source)) as IOrderResult
+  }
+
+  public async updateOrderFulfillment(params: IQuery = {}, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.updateOrderFulfillment(), params, headers, source)) as IOrderResult
   }
 
   public async applyPromoCode(params: ICartApplyPromoCode, headers: IHeaders = {}, source: any = null): Promise<IOrderResult> {

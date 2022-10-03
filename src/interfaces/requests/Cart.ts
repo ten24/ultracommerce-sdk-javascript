@@ -54,7 +54,7 @@ export interface ICartClearOrderFulfillment {
   returnJSONObjects: string
 }
 
-export interface ICartAddShippingAddress {
+export interface ICartAddShippingAddressUsingAccountAddress {
   name: string
   company: string
   streetAddresss: string
@@ -67,11 +67,9 @@ export interface ICartAddShippingAddress {
   returnJSONObjects: string
   shippingMethodID: string
 }
-
-export interface ICartAddShippingAddressUsingAccountAddress {
-  accountAddressID: string
-  returnJSONObjects: string
+export interface ICartAddShippingAddress {
   fulfillmentID: string
+  returnJSONObjects: string
   shippingMethodID: string
 }
 

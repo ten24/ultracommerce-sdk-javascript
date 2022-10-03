@@ -60,6 +60,7 @@ export const Routes = {
   getCart: () => `/api/scope/getCartData`,
   addCartToSession: () => `/api/scope/addCartToSession`,
   clearCart: () => `/api/scope/clearOrder`,
+  updateOrder: () => `/api/scope/updateOrderPublicProperties`,
   updateOrderNotes: () => `/api/scope/updateOrderNotes`,
   addOrderItem: () => `/api/scope/addOrderItem`,
   addOrderItems: () => `/api/scope/addOrderItems`,
@@ -71,6 +72,7 @@ export const Routes = {
   getEligibleFulfillmentMethods: () => `/api/scope/getEligibleFulfillmentMethods`,
   setPickupDate: () => `/api/scope/setPickupDate`,
   clearOrderFulfillment: () => `/api/scope/clearOrderFulfillment`,
+  updateOrderFulfillment: () => `/api/scope/updateOrderFulfillment`,
   getAvailablePaymentMethods: () => `/api/scope/getAvailablePaymentMethods`,
   getAppliedPromotionCodes: () => `/api/scope/getAppliedPromotionCodes`,
   getAppliedPayments: () => `/api/scope/getAppliedPayments`,
@@ -153,6 +155,7 @@ export const Routes = {
   getProductBundleBuild: () => `api/scope/getProductBundleBuild`,
   removeProductBundleBuild: () => `api/scope/removeProductBundleBuild`,
   productSearch: () => `/api/scope/productSearch`,
+  productSearchTypeahead: () => `/api/scope/productSearchTypeahead`,
   getResizedImageByProfileName: () => `/api/scope/getResizedImageByProfileName`,
   addProductReview: () => `/api/scope/addProductReview`,
 
@@ -206,4 +209,15 @@ export const Routes = {
   convertCartToQuote: () => `/api/scope/convertCartToQuote`,
   updateQuote: () => `/api/scope/updateQuote`,
   submitQuoteForApproval: () => `/api/scope/submitQuoteForApproval`,
+
+  //Subscription Api
+  updateSubscriptionUsage: () => `api/scope/updateSubscriptionUsage`,
+  addSubscriptionUsageBenefitAccount: () => `api/scope/addSubscriptionUsageBenefitAccount`,
+  renewSubscriptionUsage: () => `api/scope/renewSubscriptionUsage`,
+  updateSubscriptionUsagePaymentMethod: () => `api/scope/updateSubscriptionUsagePaymentMethod`,
+  updateSubscriptionUsageStatus: () => `api/scope/updateSubscriptionUsageStatus`,
+  cancelSubscriptionUsage: () => `api/scope/cancelSubscriptionUsage`,
+  updateSubscriptionBillingAddress: () => `api/scope/updateSubscriptionBillingAddress`,
+  updateSubscriptionShippingAddress: () => `api/scope/updateSubscriptionShippingAddress`,
+  switchAutoRenewal: () => `api/scope/toggleAutoRenewal`,
 }
