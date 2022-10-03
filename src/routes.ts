@@ -47,15 +47,20 @@ export const Routes = {
   getAccountQuotes: () => `/api/scope/getAllCartsAndQuotesOnAccount`,
   getAccountOrderFulfillments: () => `/api/scope/getAllOrderFulfillmentsOnAccount`,
   getAccountOrderDeliveries: () => `/api/scope/getAllOrderDeliveryOnAccount`,
-  getGiftCardsOnAccount: () => `/api/scope/getAllGiftCardsOnAccount`,
+  getGiftCardsOnAccount: () => `/api/scope/getGiftCardsOnAccount`,
   getSubscriptionUsage: () => `/api/scope/getSubscriptionsUsageOnAccount`,
   getParentAccount: () => `/api/scope/getParentOnAccount/`,
   getChildAccounts: () => `/api/scope/getChildOnAccount`,
+
+  addGiftCardToAccount: () => `/api/scope/addGiftCardToAccount`,
+  updateGiftCardStatus: () => `/api/scope/updateGiftCardStatus`,
+  getGiftCardTransactions: () => `/api/scope/getGiftCardTransactions`,
 
   //Checkout Endpoints
   getCart: () => `/api/scope/getCartData`,
   addCartToSession: () => `/api/scope/addCartToSession`,
   clearCart: () => `/api/scope/clearOrder`,
+  updateOrder: () => `/api/scope/updateOrderPublicProperties`,
   updateOrderNotes: () => `/api/scope/updateOrderNotes`,
   addOrderItem: () => `/api/scope/addOrderItem`,
   addOrderItems: () => `/api/scope/addOrderItems`,
@@ -67,6 +72,7 @@ export const Routes = {
   getEligibleFulfillmentMethods: () => `/api/scope/getEligibleFulfillmentMethods`,
   setPickupDate: () => `/api/scope/setPickupDate`,
   clearOrderFulfillment: () => `/api/scope/clearOrderFulfillment`,
+  updateOrderFulfillment: () => `/api/scope/updateOrderFulfillment`,
   getAvailablePaymentMethods: () => `/api/scope/getAvailablePaymentMethods`,
   getAppliedPromotionCodes: () => `/api/scope/getAppliedPromotionCodes`,
   getAppliedPayments: () => `/api/scope/getAppliedPayments`,
@@ -120,6 +126,18 @@ export const Routes = {
   getWishListItems: () => `api/scope/getWishListItems`,
   addWishlistItemAndGetWishList: () => `api/scope/addWishlistItem,getWishlistItems`, //new
   removeWishlistItemAndGetWishList: () => `api/scope/removeWishlistItem,getWishlistItems`, //new
+  getOrderTemplateItems: () => `api/scope/getOrderTemplateItems`,
+  getOrderTemplateDetails: () => `api/scope/getOrderTemplateDetails`,
+  updateOrderTemplateShipping: () => `api/scope/updateOrderTemplateShipping`,
+  updateOrderTemplateBilling: () => `api/scope/updateOrderTemplateBilling`,
+  getCancellationReasonTypeOptions: () => `api/scope/getCancellationReasonTypeOptions`,
+  getFrequencyTermOptions: () => `api/scope/getFrequencyTermOptions`,
+  getScheduleDateChangeReasonTypeOptions: () => `api/scope/getScheduleDateChangeReasonTypeOptions`,
+  editOrderTemplateItem: () => `api/scope/editOrderTemplateItem`,
+  editOrderTemplate: () => `api/scope/editOrderTemplate`,
+  updateOrderTemplateFrequency: () => `api/scope/updateOrderTemplateFrequency`,
+  cancelOrderTemplate: () => `api/scope/cancelOrderTemplate`,
+  updateOrderTemplateSchedule: () => `api/scope/updateOrderTemplateSchedule`,
 
   //Product Endpoints
   listProduct: () => `/api/public/product`,
@@ -137,7 +155,9 @@ export const Routes = {
   getProductBundleBuild: () => `api/scope/getProductBundleBuild`,
   removeProductBundleBuild: () => `api/scope/removeProductBundleBuild`,
   productSearch: () => `/api/scope/productSearch`,
+  productSearchTypeahead: () => `/api/scope/productSearchTypeahead`,
   getResizedImageByProfileName: () => `/api/scope/getResizedImageByProfileName`,
+  addProductReview: () => `/api/scope/addProductReview`,
 
   //Product Type Endpoints
   listProductType: () => `/api/producttype`,
@@ -181,4 +201,23 @@ export const Routes = {
   getContentByPage: () => `/api/scope/getContentByPage`,
   verifyRecaptcha: () => `/api/scope/verifyRecaptcha`,
   downloadFile: () => `/api/scope/downloadFile`,
+
+  //Quote Management Api
+  getQuotes: () => `/api/scope/getQuotes`,
+  getQuote: () => `/api/scope/getQuote`,
+  createQuote: () => `/api/scope/createQuote`,
+  convertCartToQuote: () => `/api/scope/convertCartToQuote`,
+  updateQuote: () => `/api/scope/updateQuote`,
+  submitQuoteForApproval: () => `/api/scope/submitQuoteForApproval`,
+
+  //Subscription Api
+  updateSubscriptionUsage: () => `api/scope/updateSubscriptionUsage`,
+  addSubscriptionUsageBenefitAccount: () => `api/scope/addSubscriptionUsageBenefitAccount`,
+  renewSubscriptionUsage: () => `api/scope/renewSubscriptionUsage`,
+  updateSubscriptionUsagePaymentMethod: () => `api/scope/updateSubscriptionUsagePaymentMethod`,
+  updateSubscriptionUsageStatus: () => `api/scope/updateSubscriptionUsageStatus`,
+  cancelSubscriptionUsage: () => `api/scope/cancelSubscriptionUsage`,
+  updateSubscriptionBillingAddress: () => `api/scope/updateSubscriptionBillingAddress`,
+  updateSubscriptionShippingAddress: () => `api/scope/updateSubscriptionShippingAddress`,
+  switchAutoRenewal: () => `api/scope/toggleAutoRenewal`,
 }

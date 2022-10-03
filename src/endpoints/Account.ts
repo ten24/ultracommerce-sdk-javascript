@@ -3,7 +3,40 @@ import BaseEndpoint from '../BaseEndpoint'
 import { IAccountResult } from '../interfaces/Account'
 import { IQuery } from '../interfaces/Query'
 import { Routes } from '../routes'
-import { IAccountCreate, IAccountUpdate, IAccountChangePassword, IAccountForgotPassword, IAccountResetPassword, IAccountCreateGuestAccount, IAccountCreateGuestAccountPassword, IAccountVerifyEmailAddress, IAccountSendEmailVerificationLink, IAccountAddEmailAddress, IAccountSetPrimaryEmailAddress, IAccountDeleteEmailAddress, IAccountAddPhoneNumber, IAccountSetPrimaryPhoneNumber, IAccountDeletePhoneNumber, IAccountAddAddress, IAccountSetPrimaryAddress, IAccountUpdateAddress, IAccountDeleteAddress, IAccountAddPaymentMethod, IAccountDeletePaymentMethod, IAccountSetPrimaryPaymentMethod, IAccountOrders, IAccountCartsAndQuotes, IAccountOrderFulfillments, IAccountOrderDeliveries, IAccountGiftCards, IAccountSubscriptionUsage, IAccountImpersonation } from '../interfaces/requests/index'
+import {
+  IAccountCreate,
+  IAccountUpdate,
+  IAccountChangePassword,
+  IAccountForgotPassword,
+  IAccountResetPassword,
+  IAccountCreateGuestAccount,
+  IAccountCreateGuestAccountPassword,
+  IAccountVerifyEmailAddress,
+  IAccountSendEmailVerificationLink,
+  IAccountAddEmailAddress,
+  IAccountSetPrimaryEmailAddress,
+  IAccountDeleteEmailAddress,
+  IAccountAddPhoneNumber,
+  IAccountSetPrimaryPhoneNumber,
+  IAccountDeletePhoneNumber,
+  IAccountAddAddress,
+  IAccountSetPrimaryAddress,
+  IAccountUpdateAddress,
+  IAccountDeleteAddress,
+  IAccountAddPaymentMethod,
+  IAccountDeletePaymentMethod,
+  IAccountSetPrimaryPaymentMethod,
+  IAccountOrders,
+  IAccountCartsAndQuotes,
+  IAccountOrderFulfillments,
+  IAccountOrderDeliveries,
+  IAccountGiftCards,
+  IAccountSubscriptionUsage,
+  IAccountImpersonation,
+  IGiftCardAdd,
+  IGiftCardUpdateStatus,
+  IGiftCardTransactions,
+} from '../interfaces/requests/index'
 import { IHeaders } from '../SDKScope'
 
 export default class Account extends BaseEndpoint {
@@ -87,16 +120,52 @@ export default class Account extends BaseEndpoint {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.deleteAccountAddress(), params, headers, source)) as IAccountResult
   }
 
-  public async addPaymentMethod(params: IAccountAddPaymentMethod, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
-    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addAccountPaymentMethod(), params, headers, source)) as IAccountResult
-  }
-
   public async deletePaymentMethod(params: IAccountDeletePaymentMethod, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.deleteAccountPaymentMethod(), params, headers, source)) as IAccountResult
   }
 
   public async sePrimaryPaymentMethod(params: IAccountSetPrimaryPaymentMethod, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
     return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.setPrimaryPaymentMethod(), params, headers, source)) as IAccountResult
+  }
+
+  public async updateSubscription(params: IAccountUpdateAddress, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.updateSubscriptionUsage(), params, headers, source)) as IAccountResult
+  }
+
+  public async addSubscriptionBenefitAccount(params: IAccountUpdateAddress, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addSubscriptionUsageBenefitAccount(), params, headers, source)) as IAccountResult
+  }
+
+  public async renewSubscriptionUsage(params: IAccountUpdateAddress, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.renewSubscriptionUsage(), params, headers, source)) as IAccountResult
+  }
+
+  public async toggleAutoRenewal(params: IAccountUpdate, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.switchAutoRenewal(), params, headers, source)) as IAccountResult
+  }
+
+  public async updateSubscriptionPaymentMethod(params: IAccountUpdateAddress, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.updateSubscriptionUsagePaymentMethod(), params, headers, source)) as IAccountResult
+  }
+
+  public async updateSubscriptionBillingAddress(params: IAccountUpdateAddress, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.updateSubscriptionBillingAddress(), params, headers, source)) as IAccountResult
+  }
+
+  public async updateSubscriptionShippingAddress(params: IAccountUpdateAddress, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.updateSubscriptionShippingAddress(), params, headers, source)) as IAccountResult
+  }
+
+  public async updateSubscriptionStatus(params: IAccountUpdateAddress, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.updateSubscriptionUsageStatus(), params, headers, source)) as IAccountResult
+  }
+
+  public async cancelSubscriptionUsage(params: IAccountUpdateAddress, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.cancelSubscriptionUsage(), params, headers, source)) as IAccountResult
+  }
+
+  public async addPaymentMethod(params: IAccountAddPaymentMethod, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addAccountPaymentMethod(), params, headers, source)) as IAccountResult
   }
 
   public async orders(params: IAccountOrders, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
@@ -116,7 +185,19 @@ export default class Account extends BaseEndpoint {
   }
 
   public async giftCards(params: IAccountGiftCards, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
-    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.getGiftCardsOnAccount(), params, headers, source)) as IAccountResult
+    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getGiftCardsOnAccount(), params, headers, source)) as IAccountResult
+  }
+
+  public async addGiftCard(params: IGiftCardAdd, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.addGiftCardToAccount(), params, headers, source)) as IAccountResult
+  }
+
+  public async updateGiftCardStatus(params: IGiftCardUpdateStatus, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(POST, Routes.updateGiftCardStatus(), params, headers, source)) as IAccountResult
+  }
+
+  public async getGiftCardTransactions(params: IGiftCardTransactions, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
+    return (await this.sdkScope.httpService.slatwallResponse(GET, Routes.getGiftCardTransactions(), params, headers, source)) as IAccountResult
   }
 
   public async subscriptionUsage(params: IAccountSubscriptionUsage, headers: IHeaders = {}, source: any = null): Promise<IAccountResult> {
